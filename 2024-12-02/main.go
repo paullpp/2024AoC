@@ -70,7 +70,7 @@ func main() {
   for scanner.Scan() {
     line := scanner.Text()
     parsed_line := strings.Split(line, " ")
-    fmt.Println(parsed_line) 
+
     if is_safe(parsed_line) {
       safe += 1
     } else {
@@ -80,10 +80,8 @@ func main() {
 
         if is_safe(new_list) {
             safe_dampened += 1
-            fmt.Println("=== old list was:", parsed_line, "\n=== new safe list:", new_list)
             break
         } else {
-            fmt.Println("=== old list was:", parsed_line, "\n=== new unsafe list:", new_list)
         }
       }
     }
