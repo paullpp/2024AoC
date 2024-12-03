@@ -16,6 +16,17 @@ func handle_err(e error) {
   }
 }
 
+func get_occurences(list []int, value int) int {
+  count := 0
+  for i := 0; i < len(list); i++ {
+    if list[i] == value {
+      count++
+    }
+  }
+
+  return count
+}
+
 func main() {
   /*
     1. sort both lists in ascending order
@@ -70,5 +81,16 @@ func main() {
     sum += int(math.Abs(result))
   }
 
-  fmt.Println("=== Final sum: ", sum)
+  // part 1
+  fmt.Println("=== Final sum:", sum)
+
+  var score int
+
+  for i := 0; i < len(left_list); i++ {
+    occurences := get_occurences(right_list, left_list[i]) 
+    score += left_list[i] * occurences
+  }
+
+  // part 2
+  fmt.Println("=== Similarity Score:", score)
 }
